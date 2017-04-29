@@ -1,5 +1,9 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
+#include "SimpleAudioEngine.h"
+
+
+using namespace CocosDenshion;
 
 USING_NS_CC;
 
@@ -14,6 +18,7 @@ AppDelegate::AppDelegate()
 
 AppDelegate::~AppDelegate() 
 {
+    SimpleAudioEngine::end();
 }
 
 // if you want a different context, modify the value of glContextAttrs
@@ -87,7 +92,7 @@ void AppDelegate::applicationDidEnterBackground() {
     Director::getInstance()->stopAnimation();
 
     // if you use SimpleAudioEngine, it must be paused
-    // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+     SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
 }
 
 // this function will be called when the app is active again
@@ -95,5 +100,5 @@ void AppDelegate::applicationWillEnterForeground() {
     Director::getInstance()->startAnimation();
 
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+     SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
 }
